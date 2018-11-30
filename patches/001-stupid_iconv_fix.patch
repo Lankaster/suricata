@@ -1,0 +1,16 @@
+--- a/libhtp/htp/htp_transcoder.c
++++ b/libhtp/htp/htp_transcoder.c
+@@ -64,12 +64,6 @@ int htp_transcode_params(htp_connp_t *connp, htp_table_t **params, int destroy_o
+         return HTP_ERROR;
+     }
+ 
+-    #if (_LIBICONV_VERSION >= 0x0108)
+-    int iconv_param = 0;
+-    iconvctl(cd, ICONV_SET_TRANSLITERATE, &iconv_param);
+-    iconv_param = 1;
+-    iconvctl(cd, ICONV_SET_DISCARD_ILSEQ, &iconv_param);
+-    #endif
+     
+     // Convert the parameters, one by one
+     bstr *name = NULL;
+
